@@ -3,6 +3,7 @@ pub mod i3bar_event;
 
 use crate::config::SharedConfig;
 use crate::themes::color::Color;
+use crate::themes::separator::Separator;
 
 use i3bar_block::I3BarBlock;
 
@@ -41,7 +42,7 @@ pub fn print_blocks(blocks: &[Vec<I3BarBlock>], config: &SharedConfig) {
             data.name = Some(id.to_string());
         }
 
-        if let Some(separator) = &config.theme.separator {
+        if let Separator::Custom(separator) = &config.theme.separator {
             // The first widget's BG is used to get the FG color for the current separator
             let sep_fg = if config.theme.separator_fg == Color::Auto {
                 widgets.first().unwrap().background
