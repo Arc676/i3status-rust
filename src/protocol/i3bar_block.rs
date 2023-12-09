@@ -7,6 +7,8 @@ pub struct I3BarBlock {
     pub full_text: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     pub short_text: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub length_priority: Option<u32>,
     #[serde(skip_serializing_if = "Color::skip_ser")]
     pub color: Color,
     #[serde(skip_serializing_if = "Color::skip_ser")]
@@ -70,6 +72,7 @@ impl Default for I3BarBlock {
             separator: Some(false),
             separator_block_width: Some(0),
             markup: Some("pango".to_string()),
+            length_priority: None,
         }
     }
 }
