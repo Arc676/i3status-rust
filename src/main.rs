@@ -39,7 +39,8 @@ fn main() {
 
         println!(
             "{},",
-            serde_json::to_string(&error_widget.get_data(&Default::default(), 0).unwrap()).unwrap()
+            serde_json::to_string(&error_widget.get_data(&Default::default(), 0, None).unwrap())
+                .unwrap()
         );
         eprintln!("\n\n{error}\n\n");
         dbg!(error);

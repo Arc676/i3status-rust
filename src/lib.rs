@@ -336,7 +336,7 @@ impl BarState {
             }
             BlockState::Normal { widget } | BlockState::Error { widget, .. } => {
                 *data = widget
-                    .get_data(&block.shared_config, id)
+                    .get_data(&block.shared_config, id, block.length_priority)
                     .in_block(block.name, id)?;
             }
         }
