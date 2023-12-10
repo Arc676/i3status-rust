@@ -153,6 +153,7 @@ pub struct Block {
     click_handler: ClickHandler,
     default_actions: &'static [(MouseButton, Option<&'static str>, &'static str)],
     signal: Option<i32>,
+    length_priority: Option<u32>,
     shared_config: SharedConfig,
 
     error_format: Format,
@@ -279,6 +280,7 @@ impl BarState {
             click_handler: block_config.common.click,
             default_actions: &[],
             signal: block_config.common.signal,
+            length_priority: block_config.common.length_priority,
             shared_config,
 
             error_format,
